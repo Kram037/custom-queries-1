@@ -23,9 +23,10 @@ public class FlightController {
         this.flightRepository = flightRepository;
     }
 
+    List<Flight> flights = new ArrayList<>();
+
     @PostMapping
     public ResponseEntity<String> createFlights() {
-        List<Flight> flights = new ArrayList<>();
         Random rand = new Random();
         for (int i = 0; i < 50; i++) {
             Flight flight = new Flight();
@@ -44,4 +45,5 @@ public class FlightController {
         List<Flight> flights = flightRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(flights);
     }
+
 }
