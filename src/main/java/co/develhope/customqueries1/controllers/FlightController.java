@@ -25,7 +25,7 @@ public class FlightController {
 
     List<Flight> flights = new ArrayList<>();
 
-    @PostMapping
+    @PostMapping("")
     public ResponseEntity<String> createFlights() {
         Random rand = new Random();
         for (int i = 0; i < 50; i++) {
@@ -40,7 +40,7 @@ public class FlightController {
         return ResponseEntity.status(HttpStatus.CREATED).body("50 flights have been created");
     }
 
-    @GetMapping
+    @GetMapping("")
     public ResponseEntity<List<Flight>> getFlights() {
         List<Flight> flights = flightRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(flights);
